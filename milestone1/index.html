@@ -4,13 +4,139 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
   <title>Vue Boolzapp</title>
 </head>
 <body>
+
+  <div id="app">
+
+
+    <div class="container">
+
+      <!-- ------------------- -->
+      <!-- ---- LEFT-SIDE ---- -->
+      <!-- ------------------- -->
+      <div class="left-side">
+        
+        <!-- --------->
+        <!--  USER  -->
+        <!-- --------->
+        <div class="user">
+
+          <div class="user__left">
+            <img src="img/avatar_io.jpg" alt="My Photo">
+            <p id="user__name">Luca Sunseri</p>
+          </div>
+          
+          <div class="user__right">
+            <ul>
+              <li>
+                <i class="fas fa-circle-notch" title="Stato"></i>
+              </li>
+              <li>
+                <i class="fas fa-comment-alt" title="Nuova Chat"></i>
+              </li>
+              <li>
+                  <i class="fas fa-ellipsis-v" title="Menu"></i>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- -------------- -->
+        <!-- NOTIFICATIONS  -->
+        <!-- -------------- -->
+        <div class="notifications">
+          <div class="notifications__icon">
+            <i class="fas fa-bell-slash"></i>
+          </div>
+          <div  class="notifications__text">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+              <a href="#">Attiva notifiche desktop</a> 
+          </div>
+        </div>
+
+        <!-- --------------- -->
+        <!-- INPUT TO SEARCH -->
+        <!-- --------------- -->
+        <div class="search">
+          <div class="search__icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <input type="text">
+        </div>
+
+        <!-- -------- -->
+        <!-- CONTACTS -->
+        <!-- -------- -->
+        <div class="contacts">
+
+          <div class="contact">
+            <div class="contact__left">
+              <div class="contact__left__photo">
+                <img src="img/avatar_1.jpg" alt="Contact 1">
+              </div>
+              <div class="contact__left__text">
+                <p>Michele</p>
+                <p>Tutto Fatto!</p>
+              </div>
+            </div>
+            <div class="contact__right">
+              <span>15/11/2021 12:30</span>
+            </div>
+          </div>
+
+          <div class="contact active">
+            <div class="contact__left">
+              <div class="contact__left__photo">
+                <img src="img/avatar_1.jpg" alt="Contact 1">
+              </div>
+              <div class="contact__left__text">
+                <p>Michele</p>
+                <p>Tutto Fatto!</p>
+              </div>
+            </div>
+            <div class="contact__right">
+              <span>15/11/2021 12:30</span>
+            </div>
+          </div>
+
+          <div class="contact">
+            <div class="contact__left">
+              <div class="contact__left__photo">
+                <img src="img/avatar_1.jpg" alt="Contact 1">
+              </div>
+              <div class="contact__left__text">
+                <p>Michele</p>
+                <p>Tutto Fatto!</p>
+              </div>
+            </div>
+            <div class="contact__right">
+              <span>15/11/2021 12:30</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
   
+      <!-- -------------------- -->
+      <!-- ---- RIGHT-SIDE ---- -->
+      <!-- -------------------- -->
+      <div class="right-side"></div>
+  
+  
+    </div>
 
 
+
+
+
+
+  </div>
   <script src="js/script.js"></script>
 </body>
 </html>
