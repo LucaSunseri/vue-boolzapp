@@ -25,7 +25,7 @@
 
 body {
   background: rgb(220,219,211); 
-  background: linear-gradient(0deg, rgba(220,219,211,1) 75%, rgba(36,150,136,1) 100%);
+  background: linear-gradient(0deg, #c2cacb 20%, #dadbd4 85%, #249788 15%);
 }
 
 .container {
@@ -184,6 +184,7 @@ i {
 .contacts {
   overflow: auto;
   height: calc(100% - 170px);
+  padding: 5px;
 }
 
 .contact {
