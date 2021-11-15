@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato&family=Reenie+Beanie&family=Roboto:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
   <title>Vue Boolzapp</title>
@@ -26,7 +29,7 @@
         <div class="user">
 
           <div class="user__left">
-            <img src="img/avatar_io.jpg" alt="My Photo">
+            <img src="img/avatar_2.jpg" alt="My Photo">
             <p id="user__name">Luca Sunseri</p>
           </div>
           
@@ -72,43 +75,13 @@
         <!-- ---------------- -->
         <div class="contacts">
 
-          <div class="contact">
+          <div v-for="(contact, index) in contacts" class="contact">
             <div class="contact__left">
-              <div class="contact__left__photo">
-                <img src="img/avatar_1.jpg" alt="Contact 1">
+              <div class="contact__left__avatar">
+                <img :src="'img/'+ contact.avatar" :alt="contact.name">
               </div>
               <div class="contact__left__text">
-                <p class="contact__name">Michele</p>
-                <p class="contact__last__message">Tutto Fatto!</p>
-              </div>
-            </div>
-            <div class="contact__right">
-              <span class="date-last-message">15/11/2021 12:30</span>
-            </div>
-          </div>
-
-          <div class="contact">
-            <div class="contact__left">
-              <div class="contact__left__photo">
-                <img src="img/avatar_1.jpg" alt="Contact 1">
-              </div>
-              <div class="contact__left__text">
-                <p class="contact__name">Michele</p>
-                <p class="contact__last__message">Tutto Fatto!</p>
-              </div>
-            </div>
-            <div class="contact__right">
-              <span class="date-last-message">15/11/2021 12:30</span>
-            </div>
-          </div>
-
-          <div class="contact active">
-            <div class="contact__left">
-              <div class="contact__left__photo">
-                <img src="img/avatar_1.jpg" alt="Contact 1">
-              </div>
-              <div class="contact__left__text">
-                <p class="contact__name">Michele</p>
+                <p class="contact__name">{{contact.name}}</p>
                 <p class="contact__last__message">Tutto Fatto!</p>
               </div>
             </div>
@@ -126,17 +99,22 @@
       <!-- -------------------- -->
       <div class="chat-side">
 
-        <!-- ------ -->
-        <!-- HEADER -->
-        <!-- ------ -->
-        <div class="header">
+        <!-- ------------ -->
+        <!-- INFO CONTACT -->
+        <!-- ------------ -->
+        <div class="info-contact">
 
-          <div class="header__left">
-            <img src="img/avatar_1.jpg" alt="My Photo">
-            <p id="user__name">Nome Contatto</p>
+          <div class="info-contact__left">
+            <div class="info-contact__left__avatar">
+              <img src="img/avatar_1.jpg" alt="avatar contact">
+            </div>
+            <div class="info-contact__left__text">
+              <p id="contact__name">Nome Contatto</p>
+              <p id="last-acces">Ultimo accesso Data e Ora</p>
+            </div>
           </div>
 
-          <div class="header__right">
+          <div class="info-contact__right">
             <ul>
               <li>
                 <i class="fas fa-search" title="Cerca..."></i>
@@ -198,9 +176,9 @@
         <!-- ---------------- -->
         <!-- MESSAGE-TO-WRITE -->
         <!-- ---------------- -->
-        <div class="footer">
+        <div class="message-to-write">
           <i class="far fa-smile"></i>
-          <div class="message-to-write">
+          <div class="message-to-write__text">
             <input type="text" placeholder="Scrivi un messaggio">
           </div>
           <i class="fas fa-microphone"></i>
@@ -217,6 +195,8 @@
 
 
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
