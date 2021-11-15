@@ -1,11 +1,24 @@
-/* ------------------------ */
-/* -------- GLOBAL -------- */
+  /* ------------------------ */
+ /* -------- GLOBAL -------- */
 /* ------------------------ */
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: red;
 }
 
 body {
@@ -19,20 +32,27 @@ body {
   height: calc(100vh - 30px);
   margin: 15px auto;
   background-color: #fff;
+  overflow: hidden;
 }
 
-/* --------------------------- */
-/* -------- LEFT-SIDE -------- */
+/* color general all FontAwesome */
+i {
+  color: #b1b1b1;
+}
+
+  /* --------------------------- */
+ /* -------- LEFT-SIDE -------- */
 /* --------------------------- */
 
 .left-side {
-  width: 350px;
+  min-width: 250px;
+  width: 35%;
   height: 100%;
   border: 1px solid lightgray;
 }
 
-/* -------------- */
-/* ---- USER ---- */
+  /* -------------- */
+ /* ---- USER ---- */
 /* -------------- */
 
 .left-side .user {
@@ -50,7 +70,7 @@ body {
 }
 
 .left-side .user__left img {
-  height: 40px;
+  width: 40px;
   border-radius: 50%;
   margin-left: 5px;
 }
@@ -76,18 +96,19 @@ body {
 }
 
 
-/* ------------- */
-/* NOTIFICATIONS */
+  /* ------------- */
+ /* NOTIFICATIONS */
 /* ------------- */
 
-.left-side .notifications {
+.notifications {
   display: flex;
   align-items: center;
+  height: 80px;
   background-color: #8edafc;
   padding: 10px;
 }
 
-.left-side .notifications__icon {
+.notifications__icon {
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -97,73 +118,210 @@ body {
   margin-right: 15px;
 }
 
-.left-side .notifications__icon i {
+.notifications__icon i {
   font-size: 20px;
   color: #8edafc;
 }
 
-.left-side .notifications__text a {
+.notifications__text a {
   text-decoration: none;
 }
 
-.left-side .notifications__text a {
+.notifications__text a {
   text-decoration: none;
 }
 
-.left-side .notifications__text a:hover {
+.notifications__text a:hover {
   text-decoration: underline;
 }
 
-/* --------------- */
-/* INPUT TO SEARCH */
+  /* --------------- */
+ /* INPUT TO SEARCH */
 /* --------------- */
 
-.left-side .search {
+.search-bar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  margin: 5px 15px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
 }
 
-/* -------- */
-/* CONTACTS */
-/* -------- */
+.search-bar i {
+  margin: 0 15px;
+}
 
-.left-side .contacts {
-  overflow: auto;
+.search-bar i:hover {
+  cursor: pointer;
+}
+
+.search-bar input {
+  width: 100%;
   height: 100%;
+  border: none;
 }
 
-.left-side .contact {
+.search-bar input:focus {
+  outline: none;
+}
+
+  /* ---------------- */
+ /* SECTION CONTACTS */
+/* ---------------- */
+
+.contacts {
+  overflow: auto;
+  height: calc(100% - 170px);
+}
+
+.contact {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   overflow: auto;
   padding: 10px;
+  border-bottom: 1px solid lightgray;
 }
 
-.left-side .contact.active {
+.contact.active {
 background-color: #e9ebea;
 }
 
-.left-side .contact__left {
+.contact__left {
   display: flex;
   align-items: center;
 }
 
-.left-side .contact__left__photo img {
-  height: 50px;
+.contact__left__photo img {
+  width: 50px;
   border-radius: 50%;
 }
 
-.left-side .contact__left__text {
+.contact__left__text {
   margin-left: 15px;
 }
 
+  /* --------------------------- */
+ /* -------- CHAT-SIDE -------- */
+/* --------------------------- */
 
-/* ---------------------------- */
-/* -------- RIGHT-SIDE -------- */
-/* ---------------------------- */
-
-.right-side {
-  background-color: red;
+.chat-side {
+  width: 65%;
   height: 100%;
 }
 
+  /* -------------- */
+ /* --- HEADER --- */
+/* -------------- */
+.chat-side .header {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  background-color: #eaeaea;
+  padding: 10px;
+}
+
+.chat-side .header__left {
+  display: flex;
+  align-items: center;
+}
+
+.chat-side .header__left img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.chat-side .header__right {
+  display: flex;
+  align-items: center;
+}
+
+.chat-side .header__right ul {
+  list-style: none;
+}
+
+.chat-side .header__right ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.chat-side .header__right ul li:hover {
+  cursor: pointer;
+}
+
+  /* --------------- */
+ /*  MESSAGES CHAT  */
+/* --------------- */
+
+.messages__chat {
+  height: calc(100% - 120px);
+  background-image: url(../img/mine.jpg);
+  overflow: auto;
+}
+
+.messages__chat .message {
+  display: flex;
+  border-radius: 20px;
+  margin: 10px 50px;
+}
+
+.messages__chat .message__text {
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 100px;
+  max-width: 80%;
+}
+
+.messages__chat .message__text__date {
+  display: flex;
+  justify-content: end;
+}
+.messages__chat .message__text__date span {
+  font-size: 12px;
+}
+
+.messages__chat .message.sent {
+  justify-content: end;
+}
+
+.messages__chat .message__text.green{
+  background-color: #d4f9ba;
+}
+
+.messages__chat .message.received {
+  justify-content: start;
+}
+
+.messages__chat .message__text.white{
+  background-color: #fff;
+}
+
+
+  /* ---------------- */
+ /* MESSAGE-TO-WRITE */
+/* ---------------- */
+
+.chat-side .footer {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.chat-side .message-to-write {
+  width: 80%;
+}
+
+.chat-side .message-to-write input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.chat-side .message-to-write input:focus {
+  outline: none;
+}
