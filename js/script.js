@@ -96,7 +96,7 @@ const app = new Vue({
       {
         name: 'Mamma',
         avatar: 'avatar_6.jpg',
-        visible: false,
+        visible: true,
         message: [
           {
             date:'28/03/2020 10:10:40',
@@ -128,7 +128,7 @@ const app = new Vue({
       {
         name: 'Gaia Di Giovanni',
         avatar: 'avatar_io.jpg',
-        visible: false,
+        visible: true,
         message: [
           {
             date:'10/01/2020 15:30:55',
@@ -150,6 +150,8 @@ const app = new Vue({
     ],
     activeChat: 0,
     newMessageText: '',
+    search: '',
+    isOpenDropMenu: false,
   },
   methods: {
 
@@ -196,15 +198,14 @@ const app = new Vue({
 
     checklength(text) {
       // console.log(word);
-      let toCheck = text
+      let toCheck = text;
       if (text.length > 20) {
         toCheck = text.substring(0,15)+"...";
       }
       return toCheck;
-    }
+    },
 
-
-  }
+  },
 
 });
 

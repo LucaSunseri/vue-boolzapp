@@ -67,7 +67,7 @@
         <!-- --------------- -->
         <div class="search-bar">
             <i class="fas fa-search" title="Cerca..."></i>
-            <input type="search" placeholder="Cerca o inizia una nuova chat">
+            <input v-model="search" type="search" placeholder="Cerca o inizia una nuova chat">
         </div>
 
         <!-- ---------------- -->
@@ -156,6 +156,19 @@
               <div class="message__text__date">
                 <span>{{message.date}}</span>
               </div>
+              <!--  Menu drop down  -->
+              <div class="message__text__option">
+                <ul>
+                  <li @click="isOpenDropMenu = !isOpenDropMenu"><i class="fas fa-chevron-down"></i>
+                    <ul v-show="isOpenDropMenu" class="message__text__option__menu">
+                      <li>Info</li>
+                      <li>Messaggio Importante</li>
+                      <li>Elimina Messaggio</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <!--  /Menu drop down  -->
             </div>
           </div>
           <!-- /Message -->
