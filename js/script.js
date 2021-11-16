@@ -149,7 +149,7 @@ const app = new Vue({
   methods: {
 
     showChat(index) {
-      console.log('vediamo', index);
+      // console.log('vediamo', index);
       this.activeChat = index;
     },
 
@@ -175,7 +175,7 @@ const app = new Vue({
             status: 'received'
           }
           this.contacts[index].message.push(newMessage)
-        },1000)
+        },2000)
       }
 
 
@@ -183,7 +183,12 @@ const app = new Vue({
 
     newDateMessage() {
       return new Date().toLocaleString();
+    },
+
+    lastMessage(index) {
+      return this.contacts[index].message.length -1;
     }
+
 
   }
 

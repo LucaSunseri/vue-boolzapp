@@ -89,7 +89,8 @@
               </div>
               <div class="contact__left__text">
                 <p class="contact__name">{{contact.name}}</p>
-                <p class="contact__last__message">Tutto Fatto!</p>
+                <p v-if="contact.message[lastMessage(index)].text.length < 30" class="contact__last__message">{{contact.message[lastMessage(index)].text}}</p>
+                <p v-else class="contact__last__message">{{contact.message[lastMessage(index)].text.substring(0,30)+"..."}}</p>
               </div>
             </div>
             <div class="contact__right">
