@@ -313,15 +313,20 @@ background-color: #e0e0e0;
 }
 
 .messages__chat .message__text {
-  display: flex;
   padding: 10px;
   border-radius: 10px;
   min-width: 100px;
   max-width: 80%;
 }
 
+.messages__chat .message__text__body-text {
+  margin-right: 50px;
+  margin-bottom: 5px;
+}
+
 .messages__chat .message__text__date {
-  margin: 10px 0px 0px 15px;
+  display: flex;
+  justify-content: end;
 }
 .messages__chat .message__text__date span {
   font-size: 10px;
