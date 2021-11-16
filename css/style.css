@@ -26,6 +26,8 @@
 body {
   background: rgb(220,219,211); 
   background: linear-gradient(0deg, #c2cacb 20%, #dadbd4 85%, #249788 15%);
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
 }
 
 .container {
@@ -128,6 +130,10 @@ i {
   color: #8edafc;
 }
 
+.notifications__icon i:hover {
+  cursor: pointer;
+}
+
 .notifications__text p {
   font-weight: bold;
 }
@@ -160,7 +166,7 @@ i {
 }
 
 .search-bar i {
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 .search-bar i:hover {
@@ -170,7 +176,9 @@ i {
 .search-bar input {
   width: 100%;
   height: 100%;
-  border: none;
+  border: 0;
+  border-radius: 20px;
+  padding: 0 10px;
 }
 
 .search-bar input:focus {
@@ -183,8 +191,7 @@ i {
 
 .contacts {
   overflow: auto;
-  height: calc(100% - 170px);
-  padding: 5px;
+  height: calc(100% - 60px - 80px - 30px);
 }
 
 .contact {
@@ -196,8 +203,13 @@ i {
   border-bottom: 1px solid lightgray;
 }
 
+.contact:hover {
+  background-color: #eeeeeed0;
+  cursor: pointer;
+}
+
 .contact.active {
-background-color: #e9ebea;
+background-color: #e0e0e0;
 }
 
 .contact__left {
@@ -212,6 +224,14 @@ background-color: #e9ebea;
 
 .contact__left__text {
   margin-left: 15px;
+}
+
+.contact__left .contact__last__message {
+  font-size: 12px;
+}
+
+.contact__right .date-last-message {
+  font-size: 12px;
 }
 
   /* --------------------------- */
@@ -287,7 +307,8 @@ background-color: #e9ebea;
 .messages__chat .message {
   display: flex;
   border-radius: 20px;
-  margin: 10px 50px;
+  margin: 5px 50px;
+  font-size: 14px;
 }
 
 .messages__chat .message__text {
@@ -302,7 +323,7 @@ background-color: #e9ebea;
   justify-content: end;
 }
 .messages__chat .message__text__date span {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .messages__chat .message.sent {
@@ -340,6 +361,10 @@ background-color: #e9ebea;
   font-size: 20px;
 }
 
+.message-to-write i:hover {
+  cursor: pointer;
+}
+
 .message-to-write__text {
   width: 90%;
 }
@@ -347,8 +372,9 @@ background-color: #e9ebea;
 .message-to-write__text input {
   width: 100%;
   height: 35px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-radius: 20px;
+  padding: 0 10px;
 }
 
 .message-to-write__text input:focus {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato&family=Reenie+Beanie&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato&family=Reenie+Beanie&family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
   <title>Vue Boolzapp</title>
@@ -75,7 +75,14 @@
         <!-- ---------------- -->
         <div class="contacts">
 
-          <div v-for="(contact, index) in contacts" class="contact">
+          <!-- Contact  -->
+          <div 
+            v-for="(contact, index) in contacts"
+            class="contact"
+            :class="{'active': (index === activeChat)}"
+            @click="activeChat = index"
+            @click="showChat(index)"
+          >
             <div class="contact__left">
               <div class="contact__left__avatar">
                 <img :src="'img/'+ contact.avatar" :alt="contact.name">
@@ -89,6 +96,7 @@
               <span class="date-last-message">15/11/2021 12:30</span>
             </div>
           </div>
+          <!-- /Contact  -->
 
         </div>
 
@@ -109,7 +117,7 @@
               <img src="img/avatar_1.jpg" alt="avatar contact">
             </div>
             <div class="info-contact__left__text">
-              <p id="contact__name">Nome Contatto</p>
+              <p id="contact__name">{{contacts[activeChat].name}}</p>
               <p id="last-acces">Ultimo accesso Data e Ora</p>
             </div>
           </div>
@@ -135,38 +143,18 @@
         <!-- -------------- -->
         <div class="messages__chat">
 
-          <div class="message sent">
-            <div class="message__text green">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae animi maxime recusandae libero vero hic repudiandae omnis nemo labore alias corporis, reprehenderit facilis, eum porro, nihil neque. Cupiditate officiis officia quam non deleniti, cumque, adipisci facere quisquam velit quo iste suscipit nobis, autem reiciendis? Numquam necessitatibus ullam et unde perferendis?</p>
+          <div 
+            v-for="(message,index) in contacts[activeChat].message" 
+            class="message"
+            :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}"
+          >
+            <div 
+              class="message__text"
+              :class="{'green': message.status === 'sent', 'white': message.status === 'received'}"
+            >
+              <p>{{message.text}}</p>
               <div class="message__text__date">
-                <span>Data e Ora</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="message received">
-            <div class="message__text white">
-              <p>Lorem</p>
-              <div class="message__text__date">
-                <span>Data e Ora</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="message received">
-            <div class="message__text white">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <div class="message__text__date">
-                <span>Data e Ora</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="message received">
-            <div class="message__text white">
-              <p>Lorem, ipsum dolor.</p>
-              <div class="message__text__date">
-                <span>Data e Ora</span>
+                <span>{{message.date}}</span>
               </div>
             </div>
           </div>
