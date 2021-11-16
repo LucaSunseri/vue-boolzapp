@@ -170,7 +170,7 @@
           <div class="message-to-write__text">
             <input 
               v-model.trim="newMessageText"  
-              @keyup.enter="addNewMessageSent(activeChat)" 
+              @keyup.enter="addNewMessage(activeChat)" 
               type="text" placeholder="Scrivi un messaggio"
             >
           </div>

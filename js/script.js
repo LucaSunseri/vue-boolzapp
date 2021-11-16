@@ -145,7 +145,7 @@ const app = new Vue({
       this.activeChat = index;
     },
 
-    addNewMessageSent(index) {
+    addNewMessage(index) {
       
       console.log('Proviamo a prendere l\'input', this.newMessageText);
 
@@ -159,6 +159,15 @@ const app = new Vue({
         this.contacts[index].message.push(newMessage);
 
         this.newMessageText = '';
+
+        setTimeout(() => {
+          const newMessage = {
+            date: 'proviamo',
+            text: 'Funziona',
+            status: 'received'
+          }
+          this.contacts[index].message.push(newMessage)
+        },1000)
       }
 
 
