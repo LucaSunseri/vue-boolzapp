@@ -67,7 +67,7 @@
         <!-- --------------- -->
         <div class="search-bar">
             <i class="fas fa-search" title="Cerca..."></i>
-            <input v-model="search" type="search" placeholder="Cerca o inizia una nuova chat">
+            <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
         </div>
 
         <!-- ---------------- -->
@@ -79,9 +79,10 @@
           <div 
             v-for="(contact, index) in contacts"
             class="contact"
-            :class="{'active': (index === activeChat)}"
-            @click="activeChat = index"
-            @click="showChat(index)"
+            :class="{'active': (index === activeContact)}"
+            @click="activeContact = index"
+            @click="showContact(index)"
+            v-if="contact.visible"
           >
             <div class="contact__left">
               <div class="contact__left__avatar">
@@ -105,7 +106,22 @@
       <!-- -------------------- -->
       <!-- ---- CHAT-SIDE ---- -->
       <!-- -------------------- -->
-      <div class="chat-side">
+
+      <!-- Template before that you click on any chat -->
+      <div  v-if="activeContact === -1" class="chat-side">
+
+        <div class="start-chat">
+          <img src="img/start chat.png" alt="WhatsApp">
+          <h2>Mantieni il telefono connesso</h2>
+          <h4>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</h4>
+          <div class="line"></div>
+          <h4><i class="fas fa-laptop"></i> Chiama da desktop con WhatsApp per Windows. <a href="https://www.whatsapp.com/download">Scaricala qui</a></h4>
+        </div>
+
+      </div>
+
+      <!-- Template after that you click on any chat -->
+      <div v-else class="chat-side">
 
         <!-- ------------ -->
         <!-- INFO CONTACT -->
@@ -114,10 +130,10 @@
 
           <div class="info-contact__left">
             <div class="info-contact__left__avatar">
-              <img src="img/avatar_1.jpg" alt="avatar contact">
+              <img :src="'img/'+ contacts[activeContact].avatar" :alt="contacts[activeContact].name">
             </div>
             <div class="info-contact__left__text">
-              <p id="contact__name">{{contacts[activeChat].name}}</p>
+              <p id="contact__name">{{contacts[activeContact].name}}</p>
               <p id="last-acces">Ultimo accesso Data e Ora</p>
             </div>
           </div>
@@ -145,7 +161,7 @@
 
           <!-- Message -->
           <div 
-            v-for="(message,index) in contacts[activeChat].message" 
+            v-for="(message,index) in contacts[activeContact].message" 
             class="message"
             :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}"
           >
@@ -183,7 +199,7 @@
           <div class="message-to-write__text">
             <input 
               v-model.trim="newMessageText"  
-              @keyup.enter="addNewMessage(activeChat)" 
+              @keyup.enter="addNewMessage(activeContact)" 
               type="text" placeholder="Scrivi un messaggio"
             >
           </div>

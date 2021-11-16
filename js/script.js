@@ -148,16 +148,16 @@ const app = new Vue({
         ],
       },
     ],
-    activeChat: 0,
+    activeContact: -1,
     newMessageText: '',
     search: '',
     isOpenDropMenu: false,
   },
   methods: {
 
-    showChat(index) {
+    showContact(index) {
       // console.log('vediamo', index);
-      this.activeChat = index;
+      this.activeContact = index;
     },
 
     addNewMessage(index) {
@@ -205,7 +205,7 @@ const app = new Vue({
       return toCheck;
     },
 
-  },
+  }
 
 });
 

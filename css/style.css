@@ -250,6 +250,47 @@ background-color: #e0e0e0;
   height: 100%;
 }
 
+/* Template before that you click on any chat */
+.chat-side .start-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f8f9fa;
+  text-align: center;
+  color: #99a8b4;
+  padding: 0 50px;
+  overflow: hidden;
+}
+
+.chat-side .start-chat img {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.chat-side .start-chat h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.chat-side .start-chat h4 {
+  font-weight: 500;
+}
+
+.chat-side .start-chat .line {
+  width: 65%;
+  height: 1px;
+  background-color: #99a8b4;
+  margin: 25px 0;
+}
+
+.chat-side .start-chat a {
+  color: #22a753;
+  text-decoration: none;
+}
+
   /* -------------- */
  /*  INFO CONTACT  */
 /* -------------- */
