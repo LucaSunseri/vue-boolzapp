@@ -190,7 +190,7 @@ i {
 /* ---------------- */
 
 .contacts {
-  overflow: auto;
+  overflow-y: scroll;
   height: calc(100% - 60px - 80px - 30px);
 }
 
@@ -302,16 +302,18 @@ background-color: #e0e0e0;
   height: calc(100% - 120px);
   background-image: url(../img/mine.jpg);
   overflow: auto;
+  padding: 30px 50px 0 50px;
 }
 
 .messages__chat .message {
   display: flex;
   border-radius: 20px;
-  margin: 5px 50px;
+  margin: 8px 0;
   font-size: 14px;
 }
 
 .messages__chat .message__text {
+  display: flex;
   padding: 10px;
   border-radius: 10px;
   min-width: 100px;
@@ -319,8 +321,7 @@ background-color: #e0e0e0;
 }
 
 .messages__chat .message__text__date {
-  display: flex;
-  justify-content: end;
+  margin: 10px 0px 0px 15px;
 }
 .messages__chat .message__text__date span {
   font-size: 10px;
@@ -330,7 +331,7 @@ background-color: #e0e0e0;
   justify-content: end;
 }
 
-.messages__chat .message__text.green{
+.messages__chat .message.sent .message__text {
   background-color: #d4f9ba;
 }
 
@@ -338,10 +339,9 @@ background-color: #e0e0e0;
   justify-content: start;
 }
 
-.messages__chat .message__text.white{
+.messages__chat .message.received .message__text {
   background-color: #fff;
 }
-
 
   /* ---------------- */
  /* MESSAGE-TO-WRITE */

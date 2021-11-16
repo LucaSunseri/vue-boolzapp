@@ -67,7 +67,7 @@
         <!-- --------------- -->
         <div class="search-bar">
             <i class="fas fa-search" title="Cerca..."></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input type="search" placeholder="Cerca o inizia una nuova chat">
         </div>
 
         <!-- ---------------- -->
@@ -143,21 +143,22 @@
         <!-- -------------- -->
         <div class="messages__chat">
 
+          <!-- Message -->
           <div 
             v-for="(message,index) in contacts[activeChat].message" 
             class="message"
             :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}"
           >
-            <div 
-              class="message__text"
-              :class="{'green': message.status === 'sent', 'white': message.status === 'received'}"
-            >
-              <p>{{message.text}}</p>
+            <div class="message__text">
+              <div class="message__text__body-text">
+                <p>{{message.text}}</p>
+              </div>
               <div class="message__text__date">
                 <span>{{message.date}}</span>
               </div>
             </div>
           </div>
+          <!-- /Message -->
 
         </div>
        
