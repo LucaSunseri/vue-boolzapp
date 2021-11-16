@@ -50,7 +50,7 @@ i {
 /* --------------------------- */
 
 .left-side {
-  min-width: 280px;
+  min-width: 300px;
   width: 35%;
   height: 100%;
   border: 1px solid lightgray;
@@ -231,7 +231,7 @@ background-color: #e0e0e0;
 }
 
 .contact__right .date-last-message {
-  font-size: 12px;
+  font-size: 10px;
 }
 
   /* --------------------------- */

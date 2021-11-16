@@ -88,13 +88,12 @@
                 <img :src="'img/'+ contact.avatar" :alt="contact.name">
               </div>
               <div class="contact__left__text">
-                <p class="contact__name">{{contact.name}}</p>
-                <p v-if="contact.message[lastMessage(index)].text.length < 30" class="contact__last__message">{{contact.message[lastMessage(index)].text}}</p>
-                <p v-else class="contact__last__message">{{contact.message[lastMessage(index)].text.substring(0,30)+"..."}}</p>
+                <p class="contact__name">{{checklength(contact.name)}}</p>
+                <p class="contact__last__message">{{checklength(contact.message[lastMessage(index)].text)}}</p>
               </div>
             </div>
             <div class="contact__right">
-              <span class="date-last-message">15/11/2021 12:30</span>
+              <span class="date-last-message">{{contact.message[lastMessage(index)].date}}</span>
             </div>
           </div>
           <!-- /Contact  -->

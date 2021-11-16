@@ -25,7 +25,7 @@ const app = new Vue({
   data: {
     contacts: [
       {
-        name: 'Michele Garibaldi',
+        name: 'Michele Francesco Garibaldi',
         avatar: 'avatar_1.jpg',
         visible: true,
         message: [
@@ -48,6 +48,11 @@ const app = new Vue({
             date: '10/01/2020 16:30:30',
             text: 'Alla grande, oggi mi sono laureato!',
             status: 'sent'
+          },
+          {
+            date: '10/01/2020 20:30:30',
+            text: 'Auguri!',
+            status: 'received'
           },
         ],
       },
@@ -187,6 +192,15 @@ const app = new Vue({
 
     lastMessage(index) {
       return this.contacts[index].message.length -1;
+    },
+
+    checklength(text) {
+      // console.log(word);
+      let toCheck = text
+      if (text.length > 20) {
+        toCheck = text.substring(0,15)+"...";
+      }
+      return toCheck;
     }
 
 
