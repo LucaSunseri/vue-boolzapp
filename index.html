@@ -168,7 +168,11 @@
         <div class="message-to-write">
           <i class="far fa-smile"></i>
           <div class="message-to-write__text">
-            <input type="text" placeholder="Scrivi un messaggio">
+            <input 
+              v-model.trim="newMessageText"  
+              @keyup.enter="addNewMessageSent(activeChat)" 
+              type="text" placeholder="Scrivi un messaggio"
+            >
           </div>
           <i class="fas fa-microphone"></i>
         </div>

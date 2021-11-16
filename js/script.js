@@ -135,7 +135,8 @@ const app = new Vue({
         ],
       },
     ],
-    activeChat: 0
+    activeChat: 0,
+    newMessageText: '',
   },
   methods: {
 
@@ -143,6 +144,25 @@ const app = new Vue({
       console.log('vediamo', index);
       this.activeChat = index;
     },
+
+    addNewMessageSent(index) {
+      
+      console.log('Proviamo a prendere l\'input', this.newMessageText);
+
+      if (this.newMessageText.length > 0) {
+        const newMessage = {
+          date: 'proviamo',
+          text: this.newMessageText,
+          status: 'sent'
+        }
+
+        this.contacts[index].message.push(newMessage);
+
+        this.newMessageText = '';
+      }
+
+
+    }
 
   }
 
