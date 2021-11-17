@@ -14,8 +14,6 @@
 <body>
 
   <div id="app">
-
-
     <div class="container">
 
       <!-- ------------------- -->
@@ -69,7 +67,7 @@
         <div class="search-bar">
             <i class="fas fa-search" title="Cerca..."></i>
             <input 
-              v-model="search" type="text" 
+              v-model.trim="search" type="text" 
               placeholder="Cerca o inizia una nuova chat" 
               @keyup="filterContacts"
             >
@@ -94,13 +92,21 @@
                 <img :src="`img/${contact.avatar}`" :alt="contact.name">
               </div>
               <div class="contact__left__text">
-                <p class="contact__name">{{checklength(contact.name, 15)}}</p>
-                <p v-if="lastMessage(index)" class="contact__last__message">{{checklength(lastMessage(index).text, 20)}}</p>
+                <p class="contact__name">
+                  {{checklength(contact.name, 15)}}
+                </p>
+                <p v-if="lastMessage(index)" class="contact__last__message">
+                  {{checklength(lastMessage(index).text, 20)}}
+                </p>
+                <!-- If last message is not present -->
                 <p v-else class="contact__last__message"></p>
               </div>
             </div>
             <div class="contact__right">
-              <span v-if="lastMessage(index)" class="date-last-message">{{lastMessage(index).date}}</span>
+              <span v-if="lastMessage(index)" class="date-last-message">
+                {{lastMessage(index).date}}
+              </span>
+              <!-- If last date is not present -->
               <span v-else class="date-last-message"></span>
             </div>
           </div>
@@ -119,10 +125,16 @@
 
         <div class="start-chat">
           <img src="img/start chat.png" alt="WhatsApp">
-          <h2>Mantieni il telefono connesso</h2>
-          <h4>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</h4>
+          <h2>
+            Mantieni il telefono connesso
+          </h2>
+          <h4>
+            WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.
+          </h4>
           <div class="line"></div>
-          <h4><i class="fas fa-laptop"></i> Chiama da desktop con WhatsApp per Windows. <a href="https://www.whatsapp.com/download">Scaricala qui</a></h4>
+          <h4>
+            <i class="fas fa-laptop"></i> Chiama da desktop con WhatsApp per Windows. <a href="https://www.whatsapp.com/download">Scaricala qui</a>
+          </h4>
         </div>
 
       </div>
@@ -140,8 +152,12 @@
               <img :src="`img/${contacts[activeContact].avatar}`" :alt="contacts[activeContact].name">
             </div>
             <div class="info-contact__left__text">
-              <p id="contact__name">{{contacts[activeContact].name}}</p>
-              <p id="last-acces">Ultimo accesso Data e Ora</p>
+              <p id="contact__name">
+                {{contacts[activeContact].name}}
+              </p>
+              <p id="last-acces">
+                Ultimo accesso Data e Ora
+              </p>
             </div>
           </div>
 
@@ -174,10 +190,14 @@
           >
             <div class="message__text">
               <div class="message__text__body-text">
-                <p>{{message.text}}</p>
+                <p>
+                  {{message.text}}
+                </p>
               </div>
               <div class="message__text__date">
-                <span>{{message.date}}</span>
+                <span>
+                  {{message.date}}
+                </span>
               </div>
               <!--  Menu drop down  -->
               <div class="message__text__option">
@@ -186,7 +206,9 @@
                     <ul v-show="isOpenDropMenu" class="message__text__option__menu">
                       <li>Info</li>
                       <li>Messaggio Importante</li>
-                      <li @click="removeMessage(activeContact, index)">Elimina Messaggio</li>
+                      <li @click="removeMessage(activeContact, index)">
+                        Elimina Messaggio
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -217,12 +239,6 @@
   
   
     </div>
-
-
-
-
-
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

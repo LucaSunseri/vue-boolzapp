@@ -160,13 +160,11 @@ const app = new Vue({
   methods: {
 
     showContact(index) {
-      // console.log('vediamo', index);
       this.activeContact = index;
     },
 
+    // Funziona che genera un nuovo messaggio e successivamnete genera un messaggio di risposta//
     addNewMessage(index) {
-      
-      // console.log('Proviamo a prendere l\'input', this.newMessageText);
 
       if (this.newMessageText.length > 0) {
         const newMessage = {
@@ -179,6 +177,7 @@ const app = new Vue({
 
         this.newMessageText = '';
 
+        // Dopo un tot di secondi genera un messaggio automatico di risposta//
         setTimeout(() => {
           const newMessage = {
             date: this.newDateMessage(),
@@ -191,26 +190,29 @@ const app = new Vue({
 
     },
 
+
+    // Funzione che rimuove un messaggio //
     removeMessage(indexContact, indexMessage) {
-      console.log('Rimuovi');
-      console.log(indexContact);
-      console.log(indexMessage);
-      console.log(this.contacts[indexContact].message);
+      
       this.contacts[indexContact].message.splice(indexMessage, 1);
-      console.log(this.contacts[indexContact].message);
+      
     },
 
+    // Funzione che genera una nuova data //
     newDateMessage() {
       return new Date().toLocaleString();
     },
 
+    // Funzione che ha lo scopo di determinare l'ultimo elemento dell'array messagge //
     lastMessage(indexContact) {
+
       return this.contacts[indexContact].message[this.contacts[indexContact].message.length -1];
+      
     },
 
     // Controllo lunghezza testo, parametro max(numero massimo di caratteri che voglio visualizzare) //
     checklength(text, max) {
-      // console.log(word);
+
       let toCheck = text;
       if (text.length > max) {
         toCheck = text.substring(0,max)+"...";
@@ -220,7 +222,6 @@ const app = new Vue({
 
      // Funzione che filta i contatti nell'input di ricerca //
     filterContacts() {
-      // console.log('Tastiamo');
     
       this.contacts.forEach(contact => {
         // console.log(contact.name);
