@@ -204,11 +204,15 @@ const app = new Vue({
       return new Date().toLocaleString();
     },
 
+    // lastMessage(indexConact) {
+    //   return this.contacts[indexConact].message.length -1;
+    // },
+
     lastMessage(indexConact) {
-      return this.contacts[indexConact].message.length -1;
+      return this.contacts[indexConact].message[this.contacts[indexConact].message.length -1];
     },
 
-    // Controllo lunghezza testo, parametro max(numero massimo di caratteri che voglio visualizzare)
+    // Controllo lunghezza testo, parametro max(numero massimo di caratteri che voglio visualizzare) //
     checklength(text, max) {
       // console.log(word);
       let toCheck = text;
@@ -218,7 +222,7 @@ const app = new Vue({
       return toCheck;
     },
 
-    // Funzione che filta i contatti nell'input di ricerca
+     // Funzione che filta i contatti nell'input di ricerca //
     filterContacts() {
       // console.log('Tastiamo');
     
