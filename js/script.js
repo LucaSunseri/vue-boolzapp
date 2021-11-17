@@ -204,12 +204,8 @@ const app = new Vue({
       return new Date().toLocaleString();
     },
 
-    // lastMessage(indexConact) {
-    //   return this.contacts[indexConact].message.length -1;
-    // },
-
-    lastMessage(indexConact) {
-      return this.contacts[indexConact].message[this.contacts[indexConact].message.length -1];
+    lastMessage(indexContact) {
+      return this.contacts[indexContact].message[this.contacts[indexContact].message.length -1];
     },
 
     // Controllo lunghezza testo, parametro max(numero massimo di caratteri che voglio visualizzare) //
