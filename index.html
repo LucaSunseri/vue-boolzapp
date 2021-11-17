@@ -52,9 +52,10 @@
         <!-- -------------- -->
         <!-- NOTIFICATIONS  -->
         <!-- -------------- -->
-        <div class="notifications">
+        <div class="notifications" @click="isnotification = !isnotification">
           <div class="notifications__icon">
-            <i class="fas fa-bell-slash"></i>
+            <i  v-if="isnotification" class="fas fa-bell"></i>
+            <i v-else class="fas fa-bell-slash"></i>
           </div>
           <div  class="notifications__text">
             <p>Ricevi notifiche di nuovi messaggi</p>
@@ -67,7 +68,11 @@
         <!-- --------------- -->
         <div class="search-bar">
             <i class="fas fa-search" title="Cerca..."></i>
-            <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
+            <input 
+              v-model="search" type="text" 
+              placeholder="Cerca o inizia una nuova chat" 
+              @keyup="filterContacts"
+            >
         </div>
 
         <!-- ---------------- -->
@@ -89,8 +94,8 @@
                 <img :src="'img/'+ contact.avatar" :alt="contact.name">
               </div>
               <div class="contact__left__text">
-                <p class="contact__name">{{checklength(contact.name)}}</p>
-                <p class="contact__last__message">{{checklength(contact.message[lastMessage(index)].text)}}</p>
+                <p class="contact__name">{{checklength(contact.name, 15)}}</p>
+                <p class="contact__last__message">{{checklength(contact.message[lastMessage(index)].text, 20)}}</p>
               </div>
             </div>
             <div class="contact__right">
@@ -163,7 +168,7 @@
           <div 
             v-for="(message,index) in contacts[activeContact].message" 
             class="message"
-            :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}"
+            :class="message.status"
           >
             <div class="message__text">
               <div class="message__text__body-text">
@@ -179,7 +184,7 @@
                     <ul v-show="isOpenDropMenu" class="message__text__option__menu">
                       <li>Info</li>
                       <li>Messaggio Importante</li>
-                      <li>Elimina Messaggio</li>
+                      <li @click="removeMessage(activeContact, index)">Elimina Messaggio</li>
                     </ul>
                   </li>
                 </ul>

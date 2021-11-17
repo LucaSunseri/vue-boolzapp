@@ -6,9 +6,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /*Custom Scrollbar Firefox*/
+  scrollbar-color: rgba(172, 172, 172, 0.397) rgba(255, 255, 255, 0);
+  scrollbar-width: thin;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar Chrome */
 *::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -114,6 +117,7 @@ i {
   background-color: #8edafc;
   padding: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .notifications__icon {
@@ -129,10 +133,6 @@ i {
 .notifications__icon i {
   font-size: 20px;
   color: #8edafc;
-}
-
-.notifications__icon i:hover {
-  cursor: pointer;
 }
 
 .notifications__text p {
@@ -358,7 +358,6 @@ background-color: #e0e0e0;
   border-radius: 20px;
   margin: 8px 0;
   font-size: 14px;
-  cursor: pointer;
 }
 
 .messages__chat .message__text {
@@ -367,6 +366,7 @@ background-color: #e0e0e0;
   border-radius: 10px;
   min-width: 100px;
   max-width: 80%;
+  cursor: pointer;
 }
 
 .messages__chat .message__text__body-text {
@@ -417,8 +417,8 @@ background-color: #e0e0e0;
 .message__text__option__menu {
   position: absolute;
   top: 15px;
-  right: 5px;  
-  min-width: 200px;
+  right: 0;  
+  min-width: 150px;
   background-color: rgba(235, 226, 226, 0.959);
   z-index: 100;
 }

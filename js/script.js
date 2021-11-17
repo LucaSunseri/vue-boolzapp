@@ -152,6 +152,10 @@ const app = new Vue({
     newMessageText: '',
     search: '',
     isOpenDropMenu: false,
+    isnotification: false,
+  },
+  mounted() {
+
   },
   methods: {
 
@@ -185,28 +189,54 @@ const app = new Vue({
         },2000)
       }
 
+    },
 
+    removeMessage(indexContact, indexMessage) {
+      console.log('Rimuovi');
+      console.log(indexContact);
+      console.log(indexMessage);
+      console.log(this.contacts[indexContact].message);
+      this.contacts[indexContact].message.splice(indexMessage, 1);
+      console.log(this.contacts[indexContact].message);
     },
 
     newDateMessage() {
       return new Date().toLocaleString();
     },
 
-    lastMessage(index) {
-      return this.contacts[index].message.length -1;
+    lastMessage(indexConact) {
+      return this.contacts[indexConact].message.length -1;
     },
 
-    checklength(text) {
+    // Controllo lunghezza testo, parametro max(numero massimo di caratteri che voglio visualizzare)
+    checklength(text, max) {
       // console.log(word);
       let toCheck = text;
-      if (text.length > 20) {
-        toCheck = text.substring(0,15)+"...";
+      if (text.length > max) {
+        toCheck = text.substring(0,max)+"...";
       }
       return toCheck;
     },
 
+    // Funzione che filta i contatti nell'input di ricerca
+    filterContacts() {
+      // console.log('Tastiamo');
+    
+      this.contacts.forEach(contact => {
+        // console.log(contact.name);
+        if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+        
+      });
+      
+    }
+
   }
 
 });
+
 
 
