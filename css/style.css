@@ -416,11 +416,19 @@ background-color: #e0e0e0;
 
 .message__text__option__menu {
   position: absolute;
-  top: 15px;
-  right: 0;  
   min-width: 150px;
   background-color: rgba(235, 226, 226, 0.959);
   z-index: 100;
+}
+
+.message.sent .message__text__option__menu {
+  top: 15px;
+  right: -5px;  
+}
+
+.message.received .message__text__option__menu {
+  top: 15px;
+  right: -135px;  
 }
 
 .message__text__option__menu li {

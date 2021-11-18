@@ -83,7 +83,6 @@
             v-for="(contact, index) in contacts"
             class="contact"
             :class="{'active': (index === activeContact)}"
-            @click="activeContact = index"
             @click="showContact(index)"
             v-if="contact.visible"
           >
@@ -155,8 +154,11 @@
               <p id="contact__name">
                 {{contacts[activeContact].name}}
               </p>
-              <p id="last-acces">
-                Ultimo accesso Data e Ora
+              <p v-if="lastMessage(activeContact)" id="last-acces">
+                Ultimo accesso {{lastMessage(activeContact).date}}
+              </p>
+              <p v-else id="last-acces">
+                Ultimo accesso un mese fa
               </p>
             </div>
           </div>
@@ -206,7 +208,7 @@
                     <ul v-show="isOpenDropMenu" class="message__text__option__menu">
                       <li>Info</li>
                       <li>Messaggio Importante</li>
-                      <li @click="removeMessage(activeContact, index)">
+                      <li @click="removeMessage(index)">
                         Elimina Messaggio
                       </li>
                     </ul>
@@ -228,7 +230,7 @@
           <div class="message-to-write__text">
             <input 
               v-model.trim="newMessageText"  
-              @keyup.enter="addNewMessage(activeContact)" 
+              @keyup.enter="addNewMessage" 
               type="text" placeholder="Scrivi un messaggio"
             >
           </div>

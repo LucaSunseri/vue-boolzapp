@@ -155,7 +155,6 @@ const app = new Vue({
     isnotification: false,
   },
   mounted() {
-
   },
   methods: {
 
@@ -164,7 +163,7 @@ const app = new Vue({
     },
 
     // Funziona che genera un nuovo messaggio e successivamnete genera un messaggio di risposta//
-    addNewMessage(index) {
+    addNewMessage() {
 
       if (this.newMessageText.length > 0) {
         const newMessage = {
@@ -173,7 +172,7 @@ const app = new Vue({
           status: 'sent'
         }
 
-        this.contacts[index].message.push(newMessage);
+        this.contacts[this.activeContact].message.push(newMessage);
 
         this.newMessageText = '';
 
@@ -184,17 +183,16 @@ const app = new Vue({
             text: 'Funziona',
             status: 'received'
           }
-          this.contacts[index].message.push(newMessage)
+          this.contacts[this.activeContact].message.push(newMessage)
         },2000)
       }
 
     },
 
-
     // Funzione che rimuove un messaggio //
-    removeMessage(indexContact, indexMessage) {
+    removeMessage(indexMessage) {
       
-      this.contacts[indexContact].message.splice(indexMessage, 1);
+      this.contacts[this.activeContact].message.splice(indexMessage, 1);
       
     },
 
@@ -224,7 +222,7 @@ const app = new Vue({
     filterContacts() {
     
       this.contacts.forEach(contact => {
-        // console.log(contact.name);
+
         if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
           contact.visible = true;
         } else {
@@ -233,7 +231,7 @@ const app = new Vue({
         
       });
       
-    }
+    },
 
   }
 
